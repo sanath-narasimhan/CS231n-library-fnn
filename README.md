@@ -58,4 +58,108 @@ best_model = model
 
 ```
 
+## Implementation 
 
+* Libraries used:
+```
+import numpy as np
+from cs231n.layers import *
+```
+
+What we want to develop looks like this:
+
+<pre>
+
+{affine - [batch/layer norm] - relu - [dropout]} x (L - 1) - affine - softmax}
+where batch/layer normalization and dropout are optional, and the {...} block is
+    repeated L - 1 times.
+</pre>
+
+* Weights are initialized from a normal distribution centered at 0 with standard deviation equal to weight_scale. Biases should be initialized to zero.                                                                         
+
+> loss(self, X, y=None):
+
+* **Uses the following functions to create a feed forward network:**
+
+> def affine_forward(self, x, w, b):
+
+* Computes the forward pass for an affine (fully-connected) layer.
+* The input x has shape (N, d_1, ..., d_k) and contains a minibatch of N
+        examples, where each example x[i] has shape (d_1, ..., d_k). We will
+        reshape each input into a vector of dimension D = d_1 * ... * d_k, and
+        then transform it to an output vector of dimension M.
+* Inputs:
+
+        - x: A numpy array containing input data, of shape (N, d_1, ..., d_k)
+        
+        - w: A numpy array of weights, of shape (D, M)
+        
+        - b: A numpy array of biases, of shape (M,)
+        
+* Returns a tuple of:
+
+        - out: output, of shape (N, M)
+    
+        - cache: (x, w, b)
+
+> def relu_forward(self, x):
+
+* Computes the forward pass for a layer of rectified linear units (ReLUs).
+
+* Input:
+
+        - x: Inputs, of any shape
+        
+* Returns a tuple of:
+
+        - out: Output, of the same shape as x
+        
+        - cache: x
+
+* **Compute loss and gradient for the fully-connected net using the following:**
+
+> softmax_loss(scores, y)
+
+* to compute loss of the network.
+
+
+> def affine_backward(self, dout, cache):
+
+* Computes the backward pass for an affine layer.
+
+* Inputs:
+
+        - dout: Upstream derivative, of shape (N, M)
+        
+        - cache: Tuple of:
+        
+          - x: Input data, of shape (N, d_1, ... d_k)
+          
+          - w: Weights, of shape (D, M)
+          
+          - b: Biases, of shape (M,)
+          
+*  Returns a tuple of:
+
+        - dx: Gradient with respect to x, of shape (N, d1, ..., d_k)
+        
+        - dw: Gradient with respect to w, of shape (D, M)
+        
+        - db: Gradient with respect to b, of shape (M,
+
+> def relu_forward(self, x):
+
+* Computes the forward pass for a layer of rectified linear units (ReLUs).
+
+* Input:
+
+        - x: Inputs, of any shape
+        
+* Returns a tuple of:
+
+        - out: Output, of the same shape as x
+        
+        - cache: x
+        
+        
+        
