@@ -163,7 +163,6 @@ class FullyConnectedNet(object):
         """
         Compute loss and gradient for the fully-connected net.
 
-        Input / output: Same as TwoLayerNet above.
         """
         X = X.astype(self.dtype)
         mode = 'test' if y is None else 'train'
