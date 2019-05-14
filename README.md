@@ -2,8 +2,9 @@
 
 ### An implementation of Assignment-2 Stanford Course CS231n on Convolutional Neural Networks
 
->fully_connected_net.py
-
+>fully_connected_net.py :
+ A file compiled for overview of the implementation.
+ 
 Has a class FullyConnectedNet that takes and argument 
 
         - hidden_dims: A list of integers giving the size of each hidden layer.
